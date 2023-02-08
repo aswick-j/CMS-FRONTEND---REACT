@@ -1,16 +1,64 @@
-import { Routes,Route } from 'react-router-dom';
-import Layout from './components/Layout';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Admin from "./components/Admin/Admin";
+import {
+  AdminElement,
+  PublicElement,
+  TaskElement,
+  UseElement,
+} from "./components/helpers/RouteElements";
 
-import './App.css';
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Navbar from "./components/NavBar/Navbar";
+import NotFound from "./components/NotFound/NotFound";
+import Tasks from "./components/Tasks/Tasks";
+import User from "./components/User/User";
 
-function App() {
+const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={Layout}>
-
-      </Route>
-    </Routes>
+    <div>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PublicElement>
+                <Home />
+              </PublicElement>
+            }
+          ></Route>
+          <Route
+            path="/user"
+            element={
+              <UseElement>
+                <User />
+              </UseElement>
+            }
+          ></Route>
+          <Route
+            path="/admin"
+            element={
+              <AdminElement>
+                <Admin />
+              </AdminElement>
+            }
+          ></Route>
+          <Route
+            path="/tasks"
+            element={
+              <TaskElement>
+                <Tasks />
+              </TaskElement>
+            }
+          ></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </div>
+    </div>
   );
-}
+};
 
 export default App;
