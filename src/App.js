@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Admin from "./components/Admin/Admin";
 import {
   AdminElement,
   PublicElement,
@@ -37,14 +36,7 @@ const App = () => {
               </UseElement>
             }
           ></Route>
-          <Route
-            path="/admin"
-            element={
-              <AdminElement>
-                <Admin />
-              </AdminElement>
-            }
-          ></Route>
+
           <Route
             path="/tasks"
             element={

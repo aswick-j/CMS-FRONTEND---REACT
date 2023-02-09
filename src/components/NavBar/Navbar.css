@@ -1,7 +1,7 @@
 .nav-list {
   background-color: #00717e;
   margin: 0;
-  padding: 1rem 0;
+  padding: 20px 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -9,7 +9,7 @@
 
 .nav-items {
   list-style: none;
-  margin-right: 2rem;
+  margin-right: 40px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 

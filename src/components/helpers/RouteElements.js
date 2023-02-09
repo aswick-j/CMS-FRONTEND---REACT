@@ -11,18 +11,16 @@ const USER_TYPES = {
 const CURRENT_USER_TYPE = USER_TYPES.ADMIN_USER;
 
 export const PublicElement = ({ children }) => {
-  const user = useSelector((state) => state.userData.user);
-
   return <>{children}</>;
 };
 
 export const UseElement = ({ children }) => {
   const user = useSelector((state) => state.userData.user);
-  console.log(user.user_metadata.roles);
+  console.log(user?.user_metadata?.roles);
 
   if (
-    user.user_metadata.roles === "Admin" ||
-    user.user_metadata.roles === "User"
+    user?.user_metadata?.roles === "Admin" ||
+    user?.user_metadata?.roles === "User"
   ) {
     return <div>{children}</div>;
   } else {
@@ -34,7 +32,7 @@ export const UseElement = ({ children }) => {
 export const AdminElement = ({ children }) => {
   const user = useSelector((state) => state.userData.user);
 
-  if (user.user_metadata.roles === "Admin") {
+  if (user?.user_metadata?.roles === "Admin") {
     return <div>{children}</div>;
   } else {
     return <Navigate to={"/"} />;
@@ -46,8 +44,8 @@ export const TaskElement = ({ children }) => {
   const user = useSelector((state) => state.userData.user);
 
   if (
-    user.user_metadata.roles === "Admin" ||
-    user.user_metadata.roles === "User"
+    user?.user_metadata?.roles === "Admin" ||
+    user?.user_metadata?.roles === "User"
   ) {
     return <div>{children}</div>;
   } else {

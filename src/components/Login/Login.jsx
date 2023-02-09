@@ -59,12 +59,12 @@ const Login = ({ isOpen, setIsOpen }) => {
     dispatch(setUser(data.user));
   };
 
-  const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (!error) {
-      dispatch(removeUser());
-    }
-  };
+  // const signOut = async () => {
+  //   const { error } = await supabase.auth.signOut();
+  //   if (!error) {
+  //     dispatch(removeUser());
+  //   }
+  // };
 
   return isOpen ? (
     <div className="__login-overlay">
@@ -107,16 +107,11 @@ const Login = ({ isOpen, setIsOpen }) => {
             </div>
           ) : null}
 
-          {loginType ? (
-            <button className="__login-btn" onClick={login}>
-              Login
-            </button>
-          ) : (
-            <button className="__login-btn" onClick={signup}>
-              Signup
-            </button>
-          )}
-          {loginType ? (
+          <button className="__login-btn" onClick={login}>
+            Login
+          </button>
+
+          {/* {loginType ? (
             <p className="__login-signup" onClick={() => setLoginType(false)}>
               New to CMS? Create an account
             </p>
@@ -124,7 +119,7 @@ const Login = ({ isOpen, setIsOpen }) => {
             <p className="__login-signup" onClick={() => setLoginType(true)}>
               Already an user? Login to an account
             </p>
-          )}
+          )} */}
         </div>
         <div className="__login-close" onClick={() => setIsOpen(false)}>
           <RxCross2 />

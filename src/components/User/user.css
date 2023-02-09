@@ -1,9 +1,19 @@
-.__login-modal {
+.__user-DGcontainer {
+  top: 20vh;
+  position: absolute;
+  height: 450px;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+
+.__form-modal {
   position: relative;
   top: 45vh;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 280px;
+  height: 330px;
   width: 40%;
   background: white;
   z-index: 10000;
@@ -13,7 +23,7 @@
   align-content: flex-start;
   align-items: center;
 }
-.__login-overlay {
+.__form-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -23,33 +33,33 @@
   z-index: 1000;
 }
 
-.__login-title {
+.__form-title {
   font-size: 30px;
   padding: 20px 0;
 }
-.__login-desc {
+.__form-desc {
   font-size: 18px;
   font-weight: 300;
 }
-.__login-right {
+.__form-right {
   width: 60%;
   height: 100%;
   padding: 50px 25px;
 }
-/* .__login-input {
-    border: none;
-    outline: none;
-    width: 95%;
-    border-bottom: 1px solid gray;
-    padding: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    height: 30px;
-    margin-top: 10px;
-    background: transparent;
-  } */
+/* .__form-input {
+      border: none;
+      outline: none;
+      width: 95%;
+      border-bottom: 1px solid gray;
+      padding: 5px;
+      font-size: 15px;
+      font-weight: 500;
+      height: 30px;
+      margin-top: 10px;
+      background: transparent;
+    } */
 
-.__login-btn {
+.__form-btn {
   width: 100%;
   margin-top: 10px;
   border: none;
@@ -61,7 +71,7 @@
   height: 48px;
   cursor: pointer;
 }
-.__login-signup {
+.__form-signup {
   margin-top: 38%;
   text-align: center;
   color: #00717e;
@@ -69,7 +79,7 @@
   cursor: pointer;
   font-weight: 700;
 }
-.__login-close {
+.__form-close {
   position: absolute;
   top: -10%;
   right: -10%;
@@ -77,11 +87,11 @@
   cursor: pointer;
 }
 
-.__login-inputBox {
+.__form-inputBox {
   position: relative;
 }
 
-.__login-inputBox input {
+.__form-inputBox input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -92,7 +102,7 @@
   outline: none;
   background: transparent;
 }
-.__login-inputBox label {
+.__form-inputBox label {
   position: absolute;
   top: 0;
   left: 0;
@@ -103,8 +113,8 @@
   transition: 0.3s;
 }
 
-.__login-inputBox input:focus ~ label,
-.__login-inputBox input:valid ~ label {
+.__form-inputBox input:focus ~ label,
+.__form-inputBox input:valid ~ label {
   top: -20px;
   left: 0;
   color: var(--flipkart-lightblue);
