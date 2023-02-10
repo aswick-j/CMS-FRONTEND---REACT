@@ -28,6 +28,26 @@ const Navbar = () => {
     }
   };
 
+  let time = new Date().toLocaleTimeString();
+  let status = new Date();
+  const [currentTime, setCurrentTime] = useState(time);
+  const [Greet, setGreeting] = useState("");
+  const updateStatus = () => {
+    time = new Date().toLocaleTimeString();
+    setCurrentTime(time);
+    let s = status.getHours();
+    if (s >= 0 && s <= 11) setGreeting("Good Morning");
+    else if (s >= 12 && s <= 16) setGreeting("Good Afternoon");
+    else if (s > 16 && s <= 20) setGreeting("Good Evening");
+    else if (s > 20 && s <= 24) setGreeting("Good Night");
+  };
+
+  useEffect(() => {
+    const timer = setInterval(updateStatus, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div>
       <nav>
@@ -35,6 +55,13 @@ const Navbar = () => {
           <li className="nav-items">
             <i className="gg-circleci"></i>
           </li>
+          {user ? (
+            <li className="nav-items" style={{ color: "white" }}>
+              {Greet}, {user.email.slice(0, 6)}
+            </li>
+          ) : (
+            <div></div>
+          )}
           <li className="nav-items">
             <Link
               to="/"
@@ -83,20 +110,26 @@ const Navbar = () => {
             <div> </div>
           )}
 
-          <li className="nav-items">
-            {user ? <li>@{user.email.slice(0, 6)}</li> : <div></div>}
-          </li>
-
           {user ? (
             <li className="nav-items">
-              <button onClick={signOut}>sign out</button>
+              <button className="__nav-btn-signout" onClick={signOut}>
+                sign out
+              </button>
             </li>
           ) : (
             <li className="nav-items">
-              <button onClick={() => setIsOpen(true)}>Login</button>
+              <button
+                className="__nav-btn-login"
+                onClick={() => setIsOpen(true)}
+              >
+                Login
+              </button>
             </li>
           )}
           <Login isOpen={isOpen} setIsOpen={setIsOpen} />
+          <li className="nav-items" style={{ color: "white" }}>
+            {currentTime}{" "}
+          </li>
         </ul>
       </nav>
     </div>

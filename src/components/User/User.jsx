@@ -50,11 +50,15 @@ const User = () => {
 
   return (
     <div>
-      {user?.user_metadata?.roles == "Admin" ? (
-        <button onClick={() => setIsOpen(true)}>+ Create New User</button>
-      ) : (
-        <div></div>
-      )}
+      <div className="__user-container">
+        {user?.user_metadata?.roles == "Admin" ? (
+          <button className="__user-btn" onClick={() => setIsOpen(true)}>
+            + Create New User
+          </button>
+        ) : (
+          <div></div>
+        )}
+      </div>
       <CreateUserForm isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="__user-DGcontainer">
         <Box sx={{ height: 400, width: "70%" }}>

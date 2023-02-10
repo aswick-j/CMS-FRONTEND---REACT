@@ -8,6 +8,33 @@
   justify-content: center;
 }
 
+.__user-container {
+  display: flex;
+  height: 100%;
+  width: 85%;
+  padding-top: 13px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.__user-btn {
+  width: 200px;
+  height: 30px;
+  margin: 0 10px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #00717e;
+  color: white;
+  font-size: 12px;
+  transition: background 250ms ease;
+}
+
+.__user-btn:hover {
+  background-color: #0093a4;
+  color: white;
+}
+
 .__form-modal {
   position: relative;
   top: 45vh;
