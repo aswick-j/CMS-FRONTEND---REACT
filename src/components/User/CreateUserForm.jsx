@@ -40,10 +40,13 @@ const CreateUserForm = ({ isOpen, setIsOpen }) => {
 
     if (data.user) {
       let name = email.slice(0, 6);
-      let dd = 7;
+      let dd = 9;
+      let ss = new Date();
       const { data1, error1 } = await supabase
         .from("userlist")
-        .insert([{ dd, name, email, role }]);
+        .insert([
+          { id: dd, username: name, email: email, roles: role, created_at: ss },
+        ]);
 
       console.log("====", data1);
       console.log("-====", error1);

@@ -29,17 +29,6 @@ export const UseElement = ({ children }) => {
   }
 };
 
-export const AdminElement = ({ children }) => {
-  const user = useSelector((state) => state.userData.user);
-
-  if (user?.user_metadata?.roles === "Admin") {
-    return <div>{children}</div>;
-  } else {
-    return <Navigate to={"/"} />;
-    // return <div>Oops! You Dont have Access</div>;
-  }
-};
-
 export const TaskElement = ({ children }) => {
   const user = useSelector((state) => state.userData.user);
 
